@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -19,14 +21,15 @@ public class NameOr3q extends AppCompatActivity {
     EditText editName ;
     Button btnAddName;
     String name;
+    LinearLayout deleteItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name_or3q);
-
         editName = findViewById(R.id.editName);
         btnAddName = findViewById(R.id.btnAdd);
+        deleteItem = findViewById(R.id.delete_item);
         final ArrayList<String> nameOr3a = new ArrayList<>();
         nameOr3a.add("TEST1");
         nameOr3a.add("TEST2");
@@ -41,9 +44,10 @@ public class NameOr3q extends AppCompatActivity {
         });
 
 
+
         recyclerView = findViewById(R.id.listView);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new myAdapter(nameOr3a);
+        adapter = new myAdapter(nameOr3a,this);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);

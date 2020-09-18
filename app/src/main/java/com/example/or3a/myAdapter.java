@@ -1,9 +1,12 @@
 package com.example.or3a;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,9 +16,13 @@ import java.util.ArrayList;
 public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder> {
 
     ArrayList<String> list ;
+    Context context;
 
-    public myAdapter(ArrayList<String> list) {
+
+    public myAdapter(ArrayList<String> list, Context context) {
         this.list = list;
+        this.context =context;
+
     }
 
     @NonNull
@@ -28,10 +35,17 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull myViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final myViewHolder holder, final int position) {
 
         String currentItem = list.get(position);
         holder.txtNameItem.setText(currentItem);
+        holder.deleteItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                list.remove(position);
+                notifyDataSetChanged();
+            }
+        });
 
     }
 
@@ -43,10 +57,12 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myViewHolder> {
     public class  myViewHolder extends RecyclerView.ViewHolder{
 
         TextView txtNameItem ;
+        LinearLayout deleteItem;
 
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             txtNameItem = itemView.findViewById(R.id.txtNameItem);
+            deleteItem = itemView.findViewById(R.id.delete_item);
         }
     }
 }
