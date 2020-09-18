@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Or3a</string>
+    <string name="Or3a">Or3a</string>
+    <string name="btnRandom">btn Random</string>
+    <string name="btnNumper">btn Numper</string>
+    <string name="btnName">btn Name</string>
+    <string name="TheNumberOfDigits">The number of digits</string>
+    <string name="theCountRandomNumber">the count random number</string>
+</resources>
