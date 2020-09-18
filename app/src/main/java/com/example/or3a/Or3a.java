@@ -25,9 +25,18 @@ public class Or3a extends AppCompatActivity {
 
                 Intent goToOr3aNumper = new Intent(Or3a.this , NumperOr3a.class);
                 startActivity(goToOr3aNumper);
-
-
                  
+
+            }
+        });
+
+        btnName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent goToOr3aName = new Intent(Or3a.this , NameOr3q.class);
+                startActivity(goToOr3aName);
+
 
             }
         });

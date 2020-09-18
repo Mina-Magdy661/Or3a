@@ -6,4 +6,5 @@
     <string name="btnName">btn Name</string>
     <string name="TheNumberOfDigits">The number of digits</string>
     <string name="theCountRandomNumber">the count random number</string>
+    <string name="Add">Add</string>
 </resources>
