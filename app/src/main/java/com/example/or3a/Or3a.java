@@ -26,6 +26,9 @@ public class Or3a extends AppCompatActivity {
                 Intent goToOr3aNumper = new Intent(Or3a.this , NumperOr3a.class);
                 startActivity(goToOr3aNumper);
 
+
+                 
+
             }
         });
     }
