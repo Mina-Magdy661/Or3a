@@ -2,11 +2,13 @@ package com.example.or3a;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,31 +40,39 @@ public class NumperOr3a extends AppCompatActivity {
 
                 list  = new ArrayList<>();
                 randNum = new ArrayList<>();
-                allNumper = Integer.parseInt(String.valueOf(txtAllNumper.getText()));
-                countRandom = Integer.parseInt(String.valueOf(txtCountRandom.getText()));
+
+                if(txtAllNumper.getText().toString().trim().length() > 0 && txtCountRandom.getText().toString().trim().length() > 0){
+
+                    allNumper = Integer.parseInt(String.valueOf(txtAllNumper.getText()));
+                    countRandom = Integer.parseInt(String.valueOf(txtCountRandom.getText()));
+
+                    for (int i=1; i<=allNumper; i++) {
+                        list.add(i);
+                    }
+
+                    if(countRandom<allNumper){
+
+                        Random rand = new Random();
+                        for (int i = 0; i < countRandom ; i++) {
+                            int randomIndex = rand.nextInt(list.size());
+                            Integer randomElement = list.get(randomIndex);
+                            list.remove(randomIndex);
+                            randNum.add(randomElement);
+
+                        }
+                        Intent goToShowNum = new Intent(NumperOr3a.this , ShowNumper.class);
+                        goToShowNum.putIntegerArrayListExtra("test", (ArrayList<Integer>) randNum);
+                        startActivity(goToShowNum);
+                    }else{
+                        Toast.makeText(getApplicationContext() ,  "لازم الرقم المطلوب يكون اقل من عدد الارقام" , Toast.LENGTH_LONG).show();
+
+                    }
 
 
-                for (int i=1; i<=allNumper; i++) {
-                    list.add(i);
+                }else{
+                    Toast.makeText(getApplicationContext() ,  "لازم تضيف رقم فى الخانات الناقصة" , Toast.LENGTH_LONG).show();
                 }
 
-//                for (int s : list){
-//                    Log.d("My array list content: ", String.valueOf(s));
-//                }
-
-
-                Random rand = new Random();
-
-                for (int i = 0; i < countRandom; i++) {
-                    int randomIndex = rand.nextInt(list.size());
-                    Integer randomElement = list.get(randomIndex);
-                    list.remove(randomIndex);
-                    randNum.add(randomElement);
-                }
-
-                        for (int s : randNum){
-                    Log.d("My", String.valueOf(s));
-                }
             }
         });
 
