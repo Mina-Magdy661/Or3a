@@ -9,11 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ShowName"></activity>
-        <activity android:name=".ShowNumper" />
-        <activity android:name=".NameOr3q" />
-        <activity android:name=".NumperOr3a" />
-        <activity android:name=".Or3a" />
+        <activity android:name=".Cup.ShowCupNumper"></activity>
+        <activity android:name=".Cup.CupNumper" />
+        <activity android:name=".Cup.Cup" />
+        <activity android:name=".Or3a.ShowName" />
+        <activity android:name=".Or3a.ShowNumper" />
+        <activity android:name=".Or3a.NameOr3q" />
+        <activity android:name=".Or3a.NumperOr3a" />
+        <activity android:name=".Or3a.Or3a" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

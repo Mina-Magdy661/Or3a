@@ -1,4 +1,4 @@
-package com.example.or3a;
+package com.example.or3a.Or3a;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.or3a.R;
+
 import java.util.ArrayList;
 
-public class ShowName extends AppCompatActivity {
-
+public class ShowNumper extends AppCompatActivity {
 
     RecyclerView recyclerView ;
     RecyclerView.Adapter adapter ;
@@ -19,27 +20,22 @@ public class ShowName extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_name);
+        setContentView(R.layout.activity_show_numper);
 
-        ArrayList<String> show = getIntent().getStringArrayListExtra("list");
+        ArrayList<Integer> show = getIntent().getIntegerArrayListExtra("test");
 
 
         recyclerView = findViewById(R.id.listView);
         layoutManager = new LinearLayoutManager(this);
-        adapter = new myAdapterForShowName(show,this);
+        adapter = new myAdapterForShowNum(show,this);
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
 
-        for (String s : show){
+        for (int s : show){
             Log.d("My", String.valueOf(s));
         }
-
-        Log.d("My", String.valueOf(show.size()));
-
-
-
 
     }
 }

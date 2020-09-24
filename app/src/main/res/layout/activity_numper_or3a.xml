@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:backgroundTint="#FFFFFF"
-    tools:context=".NumperOr3a">
+    tools:context=".Or3a.NumperOr3a">
 
     <TextView
         android:id="@+id/textView2"

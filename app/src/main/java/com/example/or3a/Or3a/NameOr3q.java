@@ -1,4 +1,4 @@
-package com.example.or3a;
+package com.example.or3a.Or3a;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.or3a.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class NameOr3q extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name_or3q);
+
         editName = findViewById(R.id.editName);
         btnAddName = findViewById(R.id.btnAdd);
         deleteItem = findViewById(R.id.delete_item);

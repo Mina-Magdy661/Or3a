@@ -5,38 +5,44 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.MediaController;
-import android.widget.Toast;
 
-import pl.droidsonroids.gif.GifDrawable;
+import com.example.or3a.Cup.Cup;
+import com.example.or3a.Or3a.Or3a;
+
 import pl.droidsonroids.gif.GifImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnRandom ;
 
-    GifImageView gifImageView;
+    GifImageView btnRandom , btnCup;
 
-//    GifDrawable gifDrawable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        gifImageView = findViewById(R.id.btnRandom);
-        gifImageView.setOnClickListener(new View.OnClickListener() {
+        btnRandom = findViewById(R.id.btnRandom);
+        btnCup = findViewById(R.id.btnCup);
+
+        btnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent goToOr3a = new Intent(MainActivity.this , Or3a.class);
-                startActivity(goToOr3a);            }
+                startActivity(goToOr3a);
+            }
         });
 
 
+        btnCup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-
-
+                Intent goToCup = new Intent(MainActivity.this , Cup.class);
+                startActivity(goToCup);
+            }
+        });
     }
+
 }
