@@ -23,9 +23,6 @@ public class myAdapterForNumperCupParticipants extends RecyclerView.Adapter<myAd
 
     ArrayList<String> list1;
     ArrayList<String> list2;
-    ArrayList<String> list3 = new ArrayList<>();
-
-    MutableLiveData allData = new MutableLiveData<>();
 
     Context context;
 
@@ -60,14 +57,14 @@ public class myAdapterForNumperCupParticipants extends RecyclerView.Adapter<myAd
             holder.txtWin.setText(holder.btn2.getText().toString());
             holder.btn1.setEnabled(false);
             holder.btn2.setEnabled(false);
-            list3.add(holder.btn2.getText().toString());
+            ((ShowCupNumper) context).setTeamWin(holder.txtWin.getText().toString());
 
         }
         if(currentItem2.equals("")){
             holder.txtWin.setText(holder.btn1.getText().toString());
             holder.btn1.setEnabled(false);
             holder.btn2.setEnabled(false);
-            list3.add(holder.btn1.getText().toString());
+            ((ShowCupNumper) context).setTeamWin(holder.txtWin.getText().toString());
 
         }
 
@@ -79,8 +76,7 @@ public class myAdapterForNumperCupParticipants extends RecyclerView.Adapter<myAd
                 holder.btn1.setEnabled(false);
                 holder.btn2.setEnabled(false);
                 holder.txtWin.setText(holder.btn1.getText().toString());
-                list3.add(holder.btn1.getText().toString());
-
+                ((ShowCupNumper) context).setTeamWin(holder.txtWin.getText().toString());
 
             }
         });
@@ -92,22 +88,11 @@ public class myAdapterForNumperCupParticipants extends RecyclerView.Adapter<myAd
                 holder.btn2.setEnabled(false);
                 holder.btn1.setEnabled(false);
                 holder.txtWin.setText(holder.btn2.getText().toString());
-                list3.add(holder.btn2.getText().toString());
+                ((ShowCupNumper) context).setTeamWin(holder.txtWin.getText().toString());
 
             }
         });
 
-        allData.setValue(list3);
-
-        allData.observe((LifecycleOwner) context,new Observer<List<String>>() {
-            @Override
-            public void onChanged(List<String> strings) {
-
-                for (String s : strings){
-                    Log.d("My", String.valueOf(s));
-                }
-            }
-        });
     }
 
     @Override
