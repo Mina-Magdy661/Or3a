@@ -2,6 +2,7 @@ package com.example.or3a.Cup;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.or3a.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class myAdapterForNameCup extends RecyclerView.Adapter<myAdapterForNameCup.myViewHolder> {
@@ -42,7 +44,7 @@ public class myAdapterForNameCup extends RecyclerView.Adapter<myAdapterForNameCu
     @Override
     public void onBindViewHolder(@NonNull final myViewHolder holder, final int position) {
 
-        String currentItem = list.get(position);
+        final String currentItem = list.get(position);
         holder.txtNameItem.setText(currentItem);
 
 
@@ -51,6 +53,13 @@ public class myAdapterForNameCup extends RecyclerView.Adapter<myAdapterForNameCu
             public void onClick(View view) {
                 list.remove(position);
                 notifyDataSetChanged();
+                ((CupNumper) context).saveData();
+
+                String filePath = context.getApplicationContext().getFilesDir().getParent()+"/shared_prefs/" + currentItem  + ".xml";
+                File deletePrefFile = new File(filePath );
+                deletePrefFile.delete();
+
+
             }
         });
 
